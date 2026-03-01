@@ -2,9 +2,14 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-header('Content-Type: application/json');
-
+use Dotenv\Dotenv;
 use App\Core\Router;
+
+// Load .env
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+
+header('Content-Type: application/json');
 
 $router = new Router();
 
